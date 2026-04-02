@@ -1,0 +1,28 @@
+name: Weekly Report
+
+on:
+  schedule:
+    - cron: '0 2 * * 1'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  generate-report:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Generate weekly report
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_USERNAME: ${{ vars.GH_USERNAME }}
+          REPORT_BRANCH: ${{ vars.REPORT_BRANCH || 'main' }}
+        run: bash scripts/generate-report.sh
+
+      - name: Trigger Vercel rebuild
+        if: ${{ env.HAS_COMMITS == 'true' }}
+        run: curl -X POST "${{ secrets.VERCEL_DEPLOY_HOOK }}"
