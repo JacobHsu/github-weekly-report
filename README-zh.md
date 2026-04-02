@@ -25,7 +25,21 @@
 
 Settings → Pages → Source → **GitHub Actions**
 
-### 3. 設定 repository 變數
+### 3. 建立 Personal Access Token（PAT）
+
+GitHub → Settings → Developer settings → Personal access tokens → Tokens (classic) → Generate new token
+
+選擇 scope：**`repo`**（含私有 repo）或 **`public_repo`**（僅公開 repo）
+
+建立後加入 repository secret：
+
+Settings → Secrets and variables → Actions → New repository secret
+
+| 名稱 | 值 |
+|------|-----|
+| `GH_PAT` | 你的 token |
+
+### 4. 設定 repository 變數
 
 Settings → Actions → Variables → New repository variable
 
@@ -33,7 +47,7 @@ Settings → Actions → Variables → New repository variable
 |------|-----|
 | `GH_USERNAME` | 你的 GitHub 使用者名稱 |
 
-### 4. 手動執行驗證
+### 5. 手動執行驗證
 
 Actions → Weekly Report → Run workflow
 

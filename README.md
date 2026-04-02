@@ -25,7 +25,21 @@ Shows the latest week's commits grouped by repository, styled like GitHub's comm
 
 Settings → Pages → Source → **GitHub Actions**
 
-### 3. Set repository variable
+### 3. Create a Personal Access Token (PAT)
+
+GitHub → Settings → Developer settings → Personal access tokens → Tokens (classic) → Generate new token
+
+Select scope: **`repo`** (includes private repos) or **`public_repo`** (public only)
+
+Then add it as a repository secret:
+
+Settings → Secrets and variables → Actions → New repository secret
+
+| Name | Value |
+|------|-------|
+| `GH_PAT` | your token |
+
+### 4. Set repository variable
 
 Settings → Actions → Variables → New repository variable
 
@@ -33,7 +47,7 @@ Settings → Actions → Variables → New repository variable
 |------|-------|
 | `GH_USERNAME` | your GitHub username |
 
-### 4. Run manually to verify
+### 5. Run manually to verify
 
 Actions → Weekly Report → Run workflow
 

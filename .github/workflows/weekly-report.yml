@@ -18,7 +18,7 @@ jobs:
 
       - name: Generate weekly report
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GH_PAT }}
           GH_USERNAME: ${{ vars.GH_USERNAME }}
           REPORT_BRANCH: ${{ vars.REPORT_BRANCH || 'main' }}
         run: bash scripts/generate-report.sh
