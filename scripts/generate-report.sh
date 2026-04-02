@@ -19,12 +19,11 @@ echo "Generating report for ${LAST_MON} ~ ${LAST_SUN}"
 PAGE=1
 ALL_REPOS=()
 while true; do
-  API_RESPONSE=$(curl -s \
+  BATCH=$(curl -sf \
     -H "Authorization: Bearer ${GITHUB_TOKEN}" \
     -H "Accept: application/vnd.github+json" \
-    "https://api.github.com/users/${GH_USERNAME}/repos?per_page=100&page=${PAGE}")
-  echo "API response (page ${PAGE}): ${API_RESPONSE:0:200}"
-  BATCH=$(echo "$API_RESPONSE" | jq -r '.[].name')
+    "https://api.github.com/users/${GH_USERNAME}/repos?per_page=100&page=${PAGE}" \
+    | jq -r '.[].name')
   [ -z "$BATCH" ] && break
   mapfile -t -O "${#ALL_REPOS[@]}" ALL_REPOS <<< "$BATCH"
   PAGE=$(( PAGE + 1 ))
