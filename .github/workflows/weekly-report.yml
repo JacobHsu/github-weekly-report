@@ -23,6 +23,3 @@ jobs:
           REPORT_BRANCH: ${{ vars.REPORT_BRANCH || 'main' }}
         run: bash scripts/generate-report.sh
 
-      - name: Trigger Vercel rebuild
-        if: ${{ env.HAS_COMMITS == 'true' }}
-        run: curl -X POST "${{ secrets.VERCEL_DEPLOY_HOOK }}"

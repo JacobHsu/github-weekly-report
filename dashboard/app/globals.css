@@ -1,0 +1,21 @@
+@import "tailwindcss";
+
+@theme inline {
+  /* GitHub Dark color tokens */
+  --color-gh-canvas: #0d1117;
+  --color-gh-canvas-subtle: #161b22;
+  --color-gh-border: #30363d;
+  --color-gh-fg: #e6edf3;
+  --color-gh-fg-muted: #8b949e;
+  --color-gh-accent: #58a6ff;
+  --color-gh-success: #3fb950;
+
+  /* Monospace font family */
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, monospace;
+}
+
+body {
+  background: var(--color-gh-canvas);
+  color: var(--color-gh-fg);
+  font-family: Arial, Helvetica, sans-serif;
+}

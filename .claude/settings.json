@@ -1,0 +1,22 @@
+{
+  "permissions": {
+    "allow": [
+      "Read(//d/11-vibi/**)",
+      "Bash(npx create-next-app@latest weekly-report --typescript --tailwind --eslint --app --no-src-dir --import-alias \"@/*\")",
+      "Bash(node -e \"const jest = require\\('jest'\\); console.log\\(jest.getVersion\\(\\)\\)\")",
+      "Bash(node -e \"const jest = require\\('jest-circus'\\); console.log\\(Object.keys\\(jest\\)\\)\")",
+      "Bash(node -e \"const {Config} = require\\('jest-config'\\); console.log\\(Object.keys\\(new Config\\(\\)\\)\\)\")",
+      "Bash(node -e \"const {defaults} = require\\('jest-config'\\); const keys = Object.keys\\(defaults\\); keys.filter\\(k => k.toLowerCase\\(\\).includes\\('setup'\\)\\).forEach\\(k => console.log\\(k\\)\\)\")",
+      "Bash(node_modules/.bin/jest --showConfig)",
+      "Bash(npm run:*)",
+      "Bash(git ls-tree:*)",
+      "Bash(npm uninstall:*)",
+      "Bash(npm test:*)",
+      "Bash(git add:*)",
+      "Bash(git commit:*)"
+    ],
+    "additionalDirectories": [
+      "D:\\11-vibi\\weekly-report"
+    ]
+  }
+}
